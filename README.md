@@ -1,70 +1,140 @@
-# Getting Started with Create React App
+# Task Manager
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
+Task Manager is a web application that allows users to manage their daily tasks efficiently. Users can sign up, log in using traditional authentication or OAuth (Google & Facebook), and manage their tasks, to-dos, and notes with additional features like dark/light mode and live random quotes.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+### Authentication
+- User Sign-up & Sign-in
+- OAuth Authentication (Google & Facebook)
+- Secure JWT-based authentication
+- Logout functionality
 
-### `npm start`
+### To-Do List
+- Create new to-dos
+- Search to-dos
+- Delete to-dos
+- Check completed to-dos
+- View to-dos on the dashboard
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Tasks Management
+- Add new tasks
+- Search tasks
+- Set task priority
+- Select a due date
+- Mark tasks as done
+- Delete tasks
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Notes Management
+- Add new notes
+- Edit & save notes
+- Delete notes
+- Search notes
 
-### `npm test`
+### Additional Features
+- Toggle between Dark & Light mode
+- Fetch & display live random quotes from [API Ninjas](https://api.api-ninjas.com/v1/quotes)
+- Refresh to get a new quote
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Tech Stack
 
-### `npm run build`
+### Frontend
+- React.js
+- Axios
+- React Router
+- Date-fns
+- CSS
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Backend
+- Node.js
+- Express.js
+- Mongoose (MongoDB)
+- JSON Web Token (JWT)
+- Passport.js (OAuth Authentication)
+  - Passport-Google-OAuth20
+  - Passport-Facebook
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Installation & Setup
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Prerequisites
+- Node.js & npm installed
+- MongoDB installed (or use a cloud service like MongoDB Atlas)
 
-### `npm run eject`
+### Steps to Run the Project
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. **Clone the Repository**
+ ```bash
+   git clone https://github.com/somugowdasoft/task-manager-frontend.git
+    cd task-manager-frontend
+   ```
+   ```bash
+   git clone https://github.com/somugowdasoft/task-manager-backend.git
+    cd task-manager-backend
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. **Backend Setup**
+   ```bash
+   cd backend
+   npm install
+   ```
+   - Create a `.env` file and add the following:
+     ```env
+     PORT=5000
+     MONGO_URI=your_mongodb_connection_string
+     JWT_SECRET=your_jwt_secret
+     GOOGLE_CLIENT_ID=your_google_client_id
+     GOOGLE_CLIENT_SECRET=your_google_client_secret
+     FACEBOOK_CLIENT_ID=your_facebook_client_id
+     FACEBOOK_CLIENT_SECRET=your_facebook_client_secret
+     ```
+   - Start the backend server:
+     ```bash
+     npm start
+     ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+4. **Frontend Setup**
+   ```bash
+   cd ../frontend
+   npm install
+   ```
+   - Start the frontend server:
+     ```bash
+     npm start
+     ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+5. Open `http://localhost:3000` in your browser.
 
-## Learn More
+## API Routes
+### Authentication
+- `POST /api/register` - Sign up a new user
+- `POST /api/login` - Log in an existing user
+- `GET /api/google` - Google OAuth authentication
+- `GET /api/facebook` - Facebook OAuth authentication
+- `GET /api/logout` - Log out user
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### To-Dos
+- `GET /api/todos` - Get all to-dos
+- `POST /api/todos` - Create a new to-do
+- `DELETE /api/todos/:id` - Delete a to-do
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Tasks
+- `GET /api/tasks` - Get all tasks
+- `POST /api/tasks` - Create a new task
+- `DELETE /api/tasks/:id` - Delete a task
 
-### Code Splitting
+### Notes
+- `GET /api/notes` - Get all notes
+- `POST /api/notes` - Create a new note
+- `PUT /api/notes/:id` - Edit a note
+- `DELETE /api/notes/:id` - Delete a note
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Quotes
+- `GET https://api.api-ninjas.com/v1/quotes` - Fetch a random quote
 
-### Analyzing the Bundle Size
+## Contributing
+Feel free to fork this project and make contributions. Create a pull request for any major changes.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## License
+This project is licensed under the MIT License.
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
