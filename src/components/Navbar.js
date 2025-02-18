@@ -45,34 +45,38 @@ const Navbar = () => {
 
   return (
     <nav className="nav-left" data-aos="fade-right">
-      <button className="todo-theme">
+      <button className="todo-theme" title="Dashboard">
         <img src={icon} alt="" />
       </button>
       <button
         onClick={gototDashboard}
         className={`nav-icon skull ${isActive("/Home")}`}
+        title="Dashboard"
       >
         <BiSolidDashboard size={22} color="white" />
       </button>
       <button
         onClick={openTodo}
         className={`nav-icon skull ${isActive("/Home/todos")}`}
+        title="Todos"
       >
         <LuListTodo size={20} color="white" />
       </button>
       <button
         onClick={openTask}
         className={`nav-icon skull ${isActive("/Home/task")}`}
+        title="Task"
       >
         <IoCalendarNumber size={20} color="white" />
       </button>
       <button
         onClick={openNotes}
         className={`nav-icon skull ${isActive("/Home/notes")}`}
+         title="Notes"
       >
         <FaRegNoteSticky size={20} color="white" />
       </button>
-      <button className="nav-icon skull" onClick={logOut}>
+      <button className="nav-icon skull" onClick={logOut}  title="Logout">
         <BiLogOut size={22} color="white" />
       </button>
     </nav>
