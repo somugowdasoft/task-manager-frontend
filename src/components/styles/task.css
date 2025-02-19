@@ -29,7 +29,7 @@ select {
   padding-right: 25px;
 }
 #add-bt {
-  border: 1px solid #fff;
+  border: 1px solid white;
   outline: none;
   margin: 0;
   background-color: inherit;
@@ -41,6 +41,7 @@ select {
   text-transform: uppercase;
   border-radius: 30px;
   color: #000;
+  color: var(--text);
   background-color: var(--navbg);
 }
 #add-bt:hover {
